@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Businesscard</string>
+    <string name="card">Visitenkarte</string>
+    <string name="settings">Einstellungen</string>
+    <string name="name">Name</string>
+    <string name="title">Titel</string>
+    <string name="phone">Tel. Nummer</string>
+    <string name="mail">E-Mail</string>
+    <string name="git">GitHub</string>
+    <string name="linkedin">LinkedIn</string>
+    <string name="save">Speichern</string>
+    <string name="open_link">Öffnen</string>
+    <string name="show_qr">QR-Code anzeigen</string>
+    <string name="qr_code">QR-Code</string>
+    <string name="close">Schließen</string>
+    <string name="pick_image">Bild auswählen</string>
+    <string name="image_saved">Bild gespeichert</string>
+    <string name="settings_saved">Einstellungen gespeichert</string>
+</resources>
