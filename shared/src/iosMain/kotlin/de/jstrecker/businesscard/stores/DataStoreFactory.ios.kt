@@ -8,7 +8,7 @@ import androidx.datastore.preferences.core.PreferencesSerializer
 import kotlinx.cinterop.ExperimentalForeignApi
 import okio.FileSystem
 import okio.Path.Companion.toPath
-import platform.Foundation.NSDocumentDirectory
+import platform.Foundation.NSApplicationSupportDirectory
 import platform.Foundation.NSFileManager
 import platform.Foundation.NSUserDomainMask
 
@@ -20,7 +20,7 @@ actual fun createDataStore(name: String): DataStore<Preferences> {
             serializer = PreferencesSerializer,
             producePath = {
                 val directory = NSFileManager.defaultManager.URLForDirectory(
-                    directory = NSDocumentDirectory,
+                    directory = NSApplicationSupportDirectory,
                     inDomain = NSUserDomainMask,
                     appropriateForURL = null,
                     create = true,

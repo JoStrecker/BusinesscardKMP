@@ -7,17 +7,8 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Info
 import androidx.compose.material.icons.rounded.Settings
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavDestination.Companion.hierarchy
@@ -43,27 +34,21 @@ fun App() {
     val scope = rememberCoroutineScope()
     val platformActions = getPlatformActions()
 
-    // DataStores
-    val nameDataStore = remember { createDataStore("name") }
-    val titleDataStore = remember { createDataStore("title") }
-    val phoneDataStore = remember { createDataStore("phone") }
-    val mailDataStore = remember { createDataStore("mail") }
-    val gitDataStore = remember { createDataStore("git") }
-    val linkedinDataStore = remember { createDataStore("linkedin") }
-    val imageDataStore = remember { createDataStore("image") }
+    // DataStore
+    val dataStore = remember { createDataStore("business_card_settings") }
 
     // Stores
-    val nameStore = remember { PreferencesStore(nameDataStore, "name_token", "Name") }
-    val titleStore = remember { PreferencesStore(titleDataStore, "title_token", "Title") }
-    val phoneStore = remember { PreferencesStore(phoneDataStore, "phone_token", "") }
-    val mailStore = remember { PreferencesStore(mailDataStore, "mail_token", "") }
-    val gitStore = remember { PreferencesStore(gitDataStore, "git_token", "") }
-    val linkedinStore = remember { PreferencesStore(linkedinDataStore, "linkedin_token", "") }
-    val imageStore = remember { PreferencesStore(imageDataStore, "image_token", "") }
+    val nameStore = remember { PreferencesStore(dataStore, "name", "Name") }
+    val titleStore = remember { PreferencesStore(dataStore, "title", "") }
+    val phoneStore = remember { PreferencesStore(dataStore, "phone", "") }
+    val mailStore = remember { PreferencesStore(dataStore, "mail", "") }
+    val gitStore = remember { PreferencesStore(dataStore, "git", "") }
+    val linkedinStore = remember { PreferencesStore(dataStore, "linkedin", "") }
+    val imageStore = remember { PreferencesStore(dataStore, "image", "") }
 
     // States
     val name by nameStore.getAccessToken.collectAsState(initial = "Name")
-    val title by titleStore.getAccessToken.collectAsState(initial = "Title")
+    val title by titleStore.getAccessToken.collectAsState(initial = "")
     val phone by phoneStore.getAccessToken.collectAsState(initial = "")
     val mail by mailStore.getAccessToken.collectAsState(initial = "")
     val github by gitStore.getAccessToken.collectAsState(initial = "")
