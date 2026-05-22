@@ -1,25 +1,44 @@
-This is a Kotlin Multiplatform project targeting Android, iOS.
+# Business Card - Kotlin Multiplatform
 
-* [/iosApp](./iosApp/iosApp) contains an iOS application. Even if you’re sharing your UI with Compose Multiplatform,
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+A simple digital business card application built with **Compose Multiplatform**. It allows users to create and display a personalized digital business card on both **Android** and **iOS**.
 
-* [/shared](./shared/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-    - [commonMain](./shared/src/commonMain/kotlin) is for code that’s common for all targets.
-    - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-      For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-      the [iosMain](./shared/src/iosMain/kotlin) folder would be the right place for such calls.
-      Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./shared/src/jvmMain/kotlin)
-      folder is the appropriate location.
+## Features
 
-### Running the apps
+- **Personal Profile**: Display your name, job title, and profile picture.
+- **Contact Actions**: Quick links to call, email, or visit GitHub and LinkedIn profiles.
+- **QR Codes**: Generate QR codes for contact details to easily share them.
+- **Data Persistence**: Settings are saved locally using DataStore.
+- **Cross-Platform**: Shared UI and logic across Android and iOS.
 
-Use the run configurations provided by the run widget in your IDE's toolbar. You can also use these commands and
-options:
+## Project Structure
 
-- Android app: `./gradlew :androidApp:assembleDebug`
-- iOS app: open the [/iosApp](./iosApp) directory in Xcode and run it from there.
+- `shared`: Contains the core logic and UI built with Compose Multiplatform.
+    - `commonMain`: Shared UI (`App.kt`, `CardScreen.kt`, `SettingsScreen.kt`) and business logic.
+    - `androidMain` & `iosMain`: Platform-specific implementations (e.g., image picking, phone calls).
+- `androidApp`: Entry point for the Android application.
+- `iosApp`: Entry point for the iOS application.
 
----
+## Getting Started
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+### Prerequisites
+
+- **Android Studio** or **IntelliJ IDEA** with the KMP plugin.
+- **Xcode** (for running the iOS app).
+
+### Running the App
+
+#### Android
+```bash
+./gradlew :androidApp:run
+```
+Or use the run configuration in your IDE.
+
+#### iOS
+1. Open the `iosApp/iosApp.xcodeproj` in Xcode.
+2. Select a simulator or physical device and click **Run**.
+
+## License
+
+May you do good and not evil.
+May you find forgiveness for yourself and forgive others.
+May you share freely, never taking more than you give.
