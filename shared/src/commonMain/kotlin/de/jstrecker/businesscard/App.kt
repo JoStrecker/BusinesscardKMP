@@ -1,6 +1,9 @@
 package de.jstrecker.businesscard
 
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Info
 import androidx.compose.material.icons.rounded.Settings
@@ -72,6 +75,7 @@ fun App() {
         val items = listOf(Screen.Card, Screen.Settings)
 
         Scaffold(
+            modifier = Modifier.windowInsetsPadding(WindowInsets.ime),
             bottomBar = {
                 NavigationBar {
                     val navBackStackEntry by navController.currentBackStackEntryAsState()
